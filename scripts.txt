@@ -1,0 +1,27 @@
+#This is for arduino initial setup.
+
+#Changing to the directory.
+cd arduino-1.8.10/
+
+#installing arduino after downloading from the main page, depeding on the permissions required.
+./install.sh 
+#sudo ./install.sh
+
+#List all the usb ports, here you can check which port is connected to arduino
+lsusb
+
+#List all the arduino devices. 
+ls -l /dev/ttyACM*
+
+#Change the group permissions to your username (Atleast required in my case).
+sudo usermod -a -G dialout username
+
+#list all the usb port
+ls -l /dev/ttyACM*
+ls -l /dev/ttyUSB*
+
+#Change group permission for tty to username
+sudo usermod -a -G tty username
+
+#Grants read/ write and execute permission to the hub
+sudo chmod a+rw /dev/ttyACM3 
